@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  redis:
+    container_name: redis
+    image: redis:5.0-alpine
+    ports:
+      - 6379:6379
+  mongodb:
+    container_name: mongodb
+    image: mongo:4.2
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo-data:/data/db
+  
+volumes:
+  mongo-data:
+  redis-data:
