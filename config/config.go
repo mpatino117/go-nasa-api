@@ -7,6 +7,8 @@ import (
 type EnviromentVariables struct {
 	NasaAuthKey string `required:"true" envconfig:"NASA_AUTH_KEY"`
 	NasaUrl     string `required:"true" envconfig:"NASA_URL"`
+	MongodbUrl  string `required:"true" envconfig:"MONGODB_URI"`
+	RedisUrl    string `required:"true" envconfig:"REDIS_URL"`
 }
 
 func LoadEnv() (EnviromentVariables, error) {

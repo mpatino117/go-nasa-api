@@ -41,7 +41,7 @@ func init() {
 
 	collection = client.Database("nasaapi").Collection("techport")
 
-	log.Print("MONGO DB connected!", collection)
+	log.Print("MONGO DB connected!")
 }
 
 func main() {
@@ -52,7 +52,7 @@ func main() {
 	}
 
 	client := redis.NewClient(&redis.Options{
-		Addr: "localhost:6379",
+		Addr: ev.RedisUrl,
 		DB:   0,
 	})
 
@@ -68,7 +68,7 @@ func main() {
 	router.Use(commonMiddleware)
 	router.HandleFunc("/techport", controllers.TechPort(ev)).Methods("GET")
 
-	log.Printf("Server running %1s", port)
+	log.Printf("Server running https://localhost:%1s", port)
 
 	log.Fatal(http.ListenAndServe(port, router))
 }
